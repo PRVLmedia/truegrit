@@ -73,23 +73,32 @@
       font-weight: bold;
     }
   </style>
-  <!-- Universal page view pixel -->
-  <script async referrerpolicy="no-referrer-when-downgrade" src="https://tag.simpli.fi/sifitag/c9ab4ef8-882d-4fb8-a625-4dcae3f318c5"></script>
+
+  <!-- Facebook Pixel -->
   <script>
-    // Fire phone call pixel
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '753289708486540'); // Replace 753289708486540
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=753289708486540&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <script>
     function trackPhoneClick() {
-      var img = document.createElement('img');
-      img.src = 'https://tag.simpli.fi/sifitag/be5fa2cf-e114-4e7a-8429-2013db554d99';
-      img.style.display = 'none';
-      document.body.appendChild(img);
+      fbq('trackCustom', 'CallNowClick');
     }
 
-    // Fire sticky footer link pixel
     function trackFooterClick() {
-      var img = document.createElement('img');
-      img.src = 'https://tag.simpli.fi/sifitag/35d83abc-94dc-451b-aab4-0d1024504eed';
-      img.style.display = 'none';
-      document.body.appendChild(img);
+      fbq('trackCustom', 'VisitWebsiteClick');
     }
   </script>
 </head>
